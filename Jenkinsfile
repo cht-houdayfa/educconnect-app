@@ -9,16 +9,21 @@ pipeline {
             }
         }
 
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh '''
-                    echo "Starting EducConnect deployment..."
+                    echo "Deploying EducConnect..."
 
                     sudo mkdir -p /var/www/educconnect
-                    sudo rm -rf /var/www/educconnect/*
-                    sudo cp -r . /var/www/educconnect/
+                    sudo rsync -av --delete --exclude='.git*' . /var/www/educconnect/
 
-                    echo "Deploy completed successfully."
+                    echo "Deployment completed."
                 '''
             }
         }
