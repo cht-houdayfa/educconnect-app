@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - EduConnect Maroc | احصل على عرض توضيحي مجاني</title>
+    <meta name="description" content="تواصل مع EduConnect Maroc للحصول على عرض توضيحي، تجربة مجانية، أو دعم فني. نحن هنا لمساعدتك في تحويل إدارة مدرستك.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-teal: #2C5F5D;
+            --terracotta: #C4704A;
+            --cream: #F7F5F3;
+            --sage: #8FA68E;
+            --dusty-rose: #D4A5A5;
+            --charcoal: #3A3A3A;
+            --gold: #D4AF37;
+            --deep-blue: #1E3A8A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-teal), var(--terracotta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-teal), var(--deep-blue));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(44, 95, 93, 0.3);
+        }
+        
+        .nav-glass {
+            backdrop-filter: blur(10px);
+            background: rgba(247, 245, 243, 0.9);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(44, 95, 93, 0.1);
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-teal), var(--deep-blue));
+            color: white;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-display font-bold text-gradient">EduConnect Maroc</a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="mr-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-primary-teal transition-colors duration-300 font-medium">الصفحة الرئيسية</a>
+                        <a href="features.html" class="text-gray-700 hover:text-primary-teal transition-colors duration-300 font-medium">الميزات</a>
+                        <a href="pricing.html" class="text-gray-700 hover:text-primary-teal transition-colors duration-300 font-medium">الأسعار</a>
+                        <a href="contact.html" class="text-primary-teal font-medium">اتصل بنا</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="bg-transparent border border-gray-300 rounded-lg px-3 py-1 text-sm">
+                        <option value="ar" selected>العربية</option>
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                    </select>
+                    <button class="btn-primary text-white px-6 py-2 rounded-lg font-medium">
+                        تجربة مجانية
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-teal-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl lg:text-6xl font-display font-bold text-gradient mb-6">
+                    تواصل معنا
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    نحن هنا لمساعدتك! سواء كنت تريد عرضاً توضيحياً، لديك أسئلة، أو تحتاج إلى دعم فني، فريقنا جاهز للرد عليك
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Email -->
+                <div class="contact-card text-center">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #2C5F5D, #1E3A8A);">
+                        📧
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">البريد الإلكتروني</h3>
+                    <p class="text-gray-600 mb-4">راسلنا في أي وقت</p>
+                    <a href="mailto:contact@educonnect.ma" class="text-primary-teal font-medium hover:underline">
+                        contact@educonnect.ma
+                    </a>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-card text-center">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #C4704A, #D4AF37);">
+                        📱
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">الهاتف</h3>
+                    <p class="text-gray-600 mb-4">اتصل بنا مباشرة</p>
+                    <a href="tel:+212522123456" class="text-primary-teal font-medium hover:underline">
+                        +212 5 22 123 456
+                    </a>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="contact-card text-center">
+                    <div class="info-icon" style="background: linear-gradient(135deg, #8FA68E, #D4A5A5);">
+                        💬
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">واتساب</h3>
+                    <p class="text-gray-600 mb-4">تواصل سريع</p>
+                    <a href="https://wa.me/212522123456" class="text-primary-teal font-medium hover:underline">
+                        أرسل رسالة الآن
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Form -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h2 class="text-3xl font-display font-bold text-gradient mb-6">احجز عرضاً توضيحياً مجانياً</h2>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <!-- School Name -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">اسم المدرسة *</label>
+                            <input type="text" name="school_name" class="form-input" placeholder="مثال: مدرسة النجاح الخاصة" required>
+                        </div>
+
+                        <!-- Contact Person -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">الاسم الكامل *</label>
+                                <input type="text" name="full_name" class="form-input" placeholder="محمد أحمد" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">المنصب</label>
+                                <select name="position" class="form-input">
+                                    <option value="">اختر المنصب</option>
+                                    <option value="director">مدير</option>
+                                    <option value="admin">إداري</option>
+                                    <option value="teacher">معلم</option>
+                                    <option value="other">آخر</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">البريد الإلكتروني *</label>
+                                <input type="email" name="email" class="form-input" placeholder="email@example.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">رقم الهاتف *</label>
+                                <input type="tel" name="phone" class="form-input" placeholder="+212 6XX XXX XXX" required>
+                            </div>
+                        </div>
+
+                        <!-- School Details -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">المدينة *</label>
+                                <select name="city" class="form-input" required>
+                                    <option value="">اختر المدينة</option>
+                                    <option value="casablanca">الدار البيضاء</option>
+                                    <option value="rabat">الرباط</option>
+                                    <option value="marrakech">مراكش</option>
+                                    <option value="fes">فاس</option>
+                                    <option value="tangier">طنجة</option>
+                                    <option value="agadir">أكادير</option>
+                                    <option value="other">أخرى</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">عدد الطلاب</label>
+                                <select name="student_count" class="form-input">
+                                    <option value="">اختر النطاق</option>
+                                    <option value="0-100">0 - 100</option>
+                                    <option value="100-300">100 - 300</option>
+                                    <option value="300-500">300 - 500</option>
+                                    <option value="500+">500+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Interest -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">ما الذي يهمك؟</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="interests" value="demo" class="ml-2">
+                                    <span>عرض توضيحي للمنصة</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="interests" value="pricing" class="ml-2">
+                                    <span>معلومات عن الأسعار</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="interests" value="implementation" class="ml-2">
+                                    <span>كيفية التطبيق</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="interests" value="training" class="ml-2">
+                                    <span>التدريب والدعم</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">رسالتك</label>
+                            <textarea name="message" class="form-input" rows="4" placeholder="أخبرنا المزيد عن احتياجات مدرستك..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg">
+                            إرسال الطلب
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Implementation Steps -->
+                <div>
+                    <div class="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8 mb-8">
+                        <h3 class="text-2xl font-display font-bold text-gradient mb-6">خطوات التنفيذ</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="step-indicator">1</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-2">استشارة مجانية</h4>
+                                    <p class="text-gray-600">نتعرف على احتياجات مدرستك ونقدم الحل المناسب</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-indicator">2</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-2">عرض توضيحي تفاعلي</h4>
+                                    <p class="text-gray-600">نريك كيف تعمل المنصة وجميع ميزاتها</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-indicator">3</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-2">فترة تجريبية مجانية</h4>
+                                    <p class="text-gray-600">30 يوماً لتجربة جميع الميزات مجاناً</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-indicator">4</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-2">التدريب والإطلاق</h4>
+                                    <p class="text-gray-600">ندرب فريقك ونساعدك في الإطلاق الناجح</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="step-indicator">5</div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-2">دعم مستمر</h4>
+                                    <p class="text-gray-600">فريقنا معك في كل خطوة لضمان نجاحك</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h4 class="text-xl font-bold mb-4 text-center">لماذا تثق بنا؟</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary-teal">500+</div>
+                                <div class="text-sm text-gray-600">مدرسة</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary-teal">15K+</div>
+                                <div class="text-sm text-gray-600">طالب نشط</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary-teal">95%</div>
+                                <div class="text-sm text-gray-600">رضا العملاء</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary-teal">24/7</div>
+                                <div class="text-sm text-gray-600">دعم فني</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-display font-bold text-gradient mb-4">مكاتبنا في المغرب</h2>
+                <p class="text-xl text-gray-600">نحن موجودون في أهم المدن لخدمتك بشكل أفضل</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Casablanca Office -->
+                <div class="contact-card">
+                    <h3 class="text-xl font-bold mb-4 text-primary-teal">🏢 الدار البيضاء</h3>
+                    <p class="text-gray-600 mb-2">المكتب الرئيسي</p>
+                    <p class="text-gray-700">
+                        123 شارع الحسن الثاني<br>
+                        الطابق 5، مكتب 12<br>
+                        20000 الدار البيضاء<br>
+                        <strong>الهاتف:</strong> +212 5 22 123 456
+                    </p>
+                </div>
+
+                <!-- Rabat Office -->
+                <div class="contact-card">
+                    <h3 class="text-xl font-bold mb-4 text-primary-teal">🏢 الرباط</h3>
+                    <p class="text-gray-600 mb-2">مكتب العاصمة</p>
+                    <p class="text-gray-700">
+                        456 شارع محمد الخامس<br>
+                        الطابق 3، مكتب 8<br>
+                        10000 الرباط<br>
+                        <strong>الهاتف:</strong> +212 5 37 789 012
+                    </p>
+                </div>
+
+                <!-- Marrakech Office -->
+                <div class="contact-card">
+                    <h3 class="text-xl font-bold mb-4 text-primary-teal">🏢 مراكش</h3>
+                    <p class="text-gray-600 mb-2">مكتب الجنوب</p>
+                    <p class="text-gray-700">
+                        789 شارع الأمير مولاي رشيد<br>
+                        الطابق 2، مكتب 5<br>
+                        40000 مراكش<br>
+                        <strong>الهاتف:</strong> +212 5 24 345 678
+                    </p>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="map-container">
+                <div style="background: linear-gradient(135deg, #e5e7eb, #d1d5db); height: 400px; display: flex; align-items: center; justify-content: center;">
+                    <p class="text-gray-600 text-xl">🗺️ خريطة المكاتب</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-display font-bold text-gradient mb-4">أسئلة شائعة</h2>
+                <p class="text-xl text-gray-600">إجابات سريعة على الأسئلة الأكثر شيوعاً</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-2">كم يستغرق تطبيق المنصة؟</h3>
+                    <p class="text-gray-600">عادة ما يستغرق التطبيق الكامل من 1-2 أسبوع حسب حجم المدرسة. نوفر دعماً كاملاً خلال العملية.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-2">هل توفرون تدريباً للمعلمين؟</h3>
+                    <p class="text-gray-600">نعم، نوفر تدريباً شاملاً لجميع المستخدمين شخصياً أو عن بُعد، بالإضافة إلى مواد تدريبية ودروس فيديو.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-2">هل يمكن استيراد بياناتنا الحالية؟</h3>
+                    <p class="text-gray-600">بالطبع! نساعدك في استيراد جميع بياناتك من أي نظام سابق بشكل آمن وسريع.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-2">ماذا لو احتجنا مساعدة بعد التطبيق؟</h3>
+                    <p class="text-gray-600">فريق الدعم الفني متاح 24/7 عبر الهاتف، البريد الإلكتروني، والدردشة المباشرة لمساعدتك في أي وقت.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-2xl font-display font-bold text-gold mb-4">EduConnect Maroc</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        نحن نؤمن بأن كل طالب في المغرب يستحق تعليماً عالي الجودة. مهمتنا هي ربط المدارس بالتكنولوجيا لخلق مستقبل أفضل.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-gold transition-colors duration-300">
+                            📧 contact@educonnect.ma
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-gold transition-colors duration-300">الصفحة الرئيسية</a></li>
+                        <li><a href="features.html" class="text-gray-300 hover:text-gold transition-colors duration-300">الميزات</a></li>
+                        <li><a href="pricing.html" class="text-gray-300 hover:text-gold transition-colors duration-300">الأسعار</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-gold transition-colors duration-300">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">الدعم</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors duration-300">مركز المساعدة</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors duration-300">التوثيق</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors duration-300">الدروس التعليمية</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 EduConnect Maroc. جميع الحقوق محفوظة. | 
+                    <span class="text-gold">صنع في المغرب 🇲🇦</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            if (window.EduConnectMaroc) {
+                window.EduConnectMaroc.showNotification('شكراً لك! سنتواصل معك قريباً.', 'success');
+                this.reset();
+            }
+            
+            console.log('Form submitted:', data);
+        });
+
+        // Add animation to contact cards
+        const cards = document.querySelectorAll('.contact-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: card,
+                        opacity: [0, 1],
+                        translateY: [30, 0],
+                        duration: 800,
+                        delay: index * 100,
+                        easing: 'easeOutQuad'
+                    });
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

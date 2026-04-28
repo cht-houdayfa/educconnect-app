@@ -1,0 +1,41 @@
+{
+  "name": "educonnect-maroc",
+  "version": "1.0.0",
+  "description": "منصة شاملة لإدارة المدارس في المغرب",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=/",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "echo 'Ready to deploy!'",
+    "lint": "npx eslint main.js",
+    "format": "npx prettier --write '*.html' '*.js'",
+    "test": "echo 'No tests configured yet'"
+  },
+  "keywords": [
+    "education",
+    "morocco",
+    "school-management",
+    "e-learning",
+    "arabic",
+    "french",
+    "rtl"
+  ],
+  "author": "EduConnect Maroc Team",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/educonnect-maroc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/educonnect-maroc/issues"
+  },
+  "homepage": "https://educonnect.ma"
+}

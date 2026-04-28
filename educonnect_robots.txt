@@ -1,0 +1,57 @@
+# EduConnect Maroc - robots.txt
+# ================================
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin areas (if any in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Disallow search result pages
+Disallow: /search
+
+# Disallow duplicate content
+Disallow: /*?
+
+# Allow specific files
+Allow: /index.html
+Allow: /features.html
+Allow: /pricing.html
+Allow: /contact.html
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
